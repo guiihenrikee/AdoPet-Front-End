@@ -1,0 +1,36 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+.socialList {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.socialList li {
+  margin: 0 1em;
+}
+
+.socialList li:hover {
+  color: #ffbb33;
+}
+
+.copyRight {
+  margin-top: 2em;
+}
+
+.copyRight span {
+  font-weight: bold;
+  color: #ffbb33;
+}
+
+footer p {
+  margin-left: 25px;
+}

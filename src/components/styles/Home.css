@@ -1,0 +1,31 @@
+.homeContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4em;
+  background-color: #fff;
+}
+
+.homeContainer h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.homeContainer h1 span {
+  color: #ffbb33;
+  padding: 0 0.2em;
+  background-color: #222;
+}
+
+.homeContainer p {
+  margin-bottom: 1.5em;
+  color: #222;
+}
+
+.homeContainer img {
+  width: 100%;
+  margin: 2em 0;
+  max-width: 900px;
+}
