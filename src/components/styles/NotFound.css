@@ -1,0 +1,15 @@
+.notContainer {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.notContainer img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  padding-top: 75px;
+}

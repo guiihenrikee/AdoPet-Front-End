@@ -1,12 +1,12 @@
 import { React, useState, useEffect } from "react";
-import api from "../../api/axiosEndpoint";
+import axiosAPI from "../../api/axios";
 import "../styles/Posts.css";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    api
+    axiosAPI
       .get("/posts")
       .then((res) => {
         setPosts(res.data);

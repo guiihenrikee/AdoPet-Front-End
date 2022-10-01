@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
+import axiosAPI from "../../api/axios";
 import "../styles/Register.css";
+
+const REGISTER_URL = "/register";
 
 const Register = () => {
   const handleSubmit = async (values, { resetForm }) => {
     await new Promise((r) => setTimeout(r, 500));
-    console.log(JSON.stringify(values, null, 2));
+    //console.log(JSON.stringify(values, null, 2));
+
+    // Get the info from the form.
+    const name = values.name;
+    const email = values.email;
+    const password = values.password;
+
+    try {
+      // Submit the form info through axios to the back-end.
+      const response = await axiosAPI.post(
+        REGISTER_URL,
+        JSON.stringify({ name, email, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      alert(JSON.stringify(response.data.message));
+    } catch (error) {
+      console.log(error.response);
+    }
     resetForm({ values: "" });
   };
 
@@ -77,6 +101,10 @@ const Register = () => {
           </button>
         </Form>
       </Formik>
+      <br />
+      <p>
+        Já possui uma conta? <Link to="/login">Entrar</Link>
+      </p>
     </div>
   );
 };

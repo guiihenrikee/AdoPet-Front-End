@@ -5,14 +5,14 @@ import dogs from "../../img/111.jpg";
 
 function Home() {
   return (
-    <div className="boxHome">
+    <div>
       <section className="homeContainer">
         <h1>
           Bem-vindo ao <span>AdoPet</span>{" "}
         </h1>
         <p>Ajudando no amparo de animais abandonados</p>
         <Link to="/posts">Adote Já!</Link>
-        <img src={dogs} alt="Dogs" class="img-fluid" />
+        <img src={dogs} alt="Dogs" className="img-fluid" />
       </section>
     </div>
   );
