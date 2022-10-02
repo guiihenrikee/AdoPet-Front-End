@@ -7,9 +7,13 @@
 }
 
 .notContainer img {
+  position: relative;
+  top: 100px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 85%;
-  padding-top: 75px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 880px;
+  min-width: 400px;
 }

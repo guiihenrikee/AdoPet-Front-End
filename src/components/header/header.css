@@ -1,12 +1,15 @@
-.imgHeader {
+/* .imgHeader {
   max-width: 80px;
   max-height: 80px;
   width: auto;
   height: auto;
-  margin: 10px;
+  margin-bottom: 5px;
 }
 
 .navbar {
+  position: relative;
+  height: 100px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #222;
@@ -31,4 +34,66 @@
 .item a:hover {
   color: #ffbb33;
   text-decoration: none;
+} */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #222;
+  z-index: 100000;
+  margin: 0;
+  min-width: 47em;
+}
+
+header img {
+  max-width: 80px;
+  max-height: 80px;
+  margin-left: 30px;
+}
+
+.imgHeader {
+  position: relative;
+  font-weight: 700;
+  color: #ffbb33;
+  text-decoration: none;
+  font-size: 2em;
+  letter-spacing: 2px;
+  transition: 0.4s;
+}
+header a {
+  text-decoration: none;
+}
+header a:hover {
+  color: #fff;
+}
+
+header ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li {
+  position: relative;
+  list-style: none;
+}
+
+.listItem {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #ffbb33;
+  letter-spacing: 2px;
+  font-weight: 500px;
+  transition: 0.4s;
 }

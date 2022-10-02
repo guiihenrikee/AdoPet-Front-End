@@ -1,0 +1,13 @@
+.back-pets {
+  position: relative;
+  top: 100px;
+  margin: none;
+  background-image: url("../../img/cat3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 800px;
+  min-width: 500px;
+  padding-top: 0.1px;
+}

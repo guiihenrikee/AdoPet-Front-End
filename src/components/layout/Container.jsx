@@ -1,12 +1,8 @@
-import styles from "./Container.css";
+import styles from "./Container.module.css";
 import React from "react";
 
 function Container(props) {
-  return (
-    <div className={`${styles.container} ${props.customClass}`}>
-      {props.children}
-    </div>
-  );
+  return <div className={styles.container}>{props.children}</div>;
 }
 
 export default Container;

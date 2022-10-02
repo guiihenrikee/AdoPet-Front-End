@@ -9,14 +9,6 @@ function Footer(props) {
       <p className="copyRight">
         <span>{props.note}</span> &copy; {year}
       </p>
-      <ul className="socialList">
-        <li>
-          <FaFacebook />
-        </li>
-        <li>
-          <FaInstagram />
-        </li>
-      </ul>
     </footer>
   );
 }

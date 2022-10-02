@@ -38,3 +38,15 @@
   padding: 15px;
   margin: auto;
 }
+
+.backRegis {
+  position: relative;
+  top: 100px;
+  background-image: url("../../img/cat4.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 800px;
+  min-width: 500px;
+}

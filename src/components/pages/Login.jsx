@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import UseAuth from "../utils/UseAuth";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import axiosAPI from "../../api/axios";
@@ -11,7 +11,6 @@ const LOGIN_URL = "/login";
 const Login = () => {
   const { setAuth } = UseAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const from = "/account";
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -32,15 +31,18 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data.token);
+
       const accessToken = response.data.token;
+
+      localStorage.setItem("token", accessToken);
       setAuth({ email, password, accessToken });
       //setSuccess(true);
       alert("Login efetuado com sucesso!");
       resetForm({ values: "" });
       navigate(from, { replace: true });
     } catch (error) {
-      console.log(error.response);
+      console.log(error);
+      alert(JSON.stringify(error.response.data.message));
     }
   };
 
@@ -50,56 +52,58 @@ const Login = () => {
   });
 
   return (
-    <div className="loginBlock">
-      <h1>Login</h1>
-      <p>Preencha os campos abaixo para continuar</p>
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-        }}
-        validationSchema={validations}
-        onSubmit={handleSubmit}
-      >
-        <Form className="Login">
-          <div className="Login-Group">
-            <Field
-              id="email"
-              placeholder="Email"
-              type="email"
-              name="email"
-              className="Login-Field"
-            />
-            <ErrorMessage
-              component="span"
-              name="email"
-              className="Login-Error"
-            />
-          </div>
-          <div className="Login-Group">
-            <Field
-              id="password"
-              type="password"
-              placeholder="Senha"
-              name="password"
-              className="Login-Field"
-            />
-            <ErrorMessage
-              component="span"
-              name="password"
-              className="Login-Error"
-            />
-          </div>
-          <button className="Login-Btn" type="submit">
-            Login
-          </button>
-        </Form>
-      </Formik>
-      <br />
-      <p>
-        Ainda não possui uma conta? <Link to="/register">Cadastre-se</Link>
-      </p>
-      <Link to="/account">account</Link>
+    <div className="backgroundDog">
+      <div className="loginBlock">
+        <h1>Login</h1>
+        <p>Preencha os campos abaixo para continuar</p>
+        <Formik
+          initialValues={{
+            email: "",
+            password: "",
+          }}
+          validationSchema={validations}
+          onSubmit={handleSubmit}
+        >
+          <Form className="Login">
+            <div className="Login-Group">
+              <Field
+                id="email"
+                placeholder="Email"
+                type="email"
+                name="email"
+                className="Login-Field"
+              />
+              <ErrorMessage
+                component="span"
+                name="email"
+                className="Login-Error"
+              />
+            </div>
+            <div className="Login-Group">
+              <Field
+                id="password"
+                type="password"
+                placeholder="Senha"
+                name="password"
+                className="Login-Field"
+              />
+              <ErrorMessage
+                component="span"
+                name="password"
+                className="Login-Error"
+              />
+            </div>
+            <button className="Login-Btn" type="submit">
+              Login
+            </button>
+          </Form>
+        </Formik>
+        <br />
+        <p>
+          Ainda não possui uma conta? <Link to="/register">Cadastre-se</Link>
+        </p>
+        <Link to="/account">account</Link>
+      </div>
     </div>
   );
 };

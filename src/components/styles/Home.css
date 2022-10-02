@@ -5,7 +5,6 @@
   align-items: center;
   justify-content: center;
   padding: 4em;
-  background-color: #fff;
 }
 
 .homeContainer h1 {
@@ -22,10 +21,37 @@
 .homeContainer p {
   margin-bottom: 1.5em;
   color: #222;
+  font-family: "Fira code", sans-serif;
+  font-weight: bold;
 }
 
 .homeContainer img {
   width: 100%;
   margin: 2em 0;
   max-width: 900px;
+}
+
+.backDog {
+  position: relative;
+  top: 100px;
+  background-image: url("../../img/dogs2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 800px;
+  min-width: 500px;
+}
+
+.adoteButton {
+  background-color: #222;
+  color: #fff;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 20px;
+}
+
+.adoteButton:hover {
+  color: #ffbb33;
 }

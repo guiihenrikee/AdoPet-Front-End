@@ -1,32 +1,45 @@
 import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
-import Container from "../layout/Container";
 import logo from "../../img/pets2.png";
 
 function Header(props) {
   return (
-    <Container>
-      <nav className="navbar">
-        <Link to="/">
-          <img className="imgHeader" src={logo} alt="PatasLogo" />
+    <header>
+      <Link to="/">
+        <Link to="/" className="imgHeader">
+          AdoPet
         </Link>
-        <ul className="list">
-          <li className="item">
-            <Link to="/posts">Pets</Link>
-          </li>
-          <li className="item">
-            <Link to="/login">{props.login}</Link>
-          </li>
-          <li className="item">
-            <Link to="/register">{props.register}</Link>
-          </li>
-          <li className="item">
-            <Link to="/about">Quem Somos</Link>
-          </li>
-        </ul>
-      </nav>
-    </Container>
+        <img src={logo} alt="Logo" />
+      </Link>
+      <ul className="list">
+        <li className="item">
+          <Link className="listItem " to="/">
+            Home
+          </Link>
+        </li>
+        <li className="item">
+          <Link className="listItem " to="/posts">
+            Pets
+          </Link>
+        </li>
+        <li className="item">
+          <Link className="listItem " to="/login">
+            {props.login}
+          </Link>
+        </li>
+        <li className="item">
+          <Link className="listItem " to="/register">
+            {props.register}
+          </Link>
+        </li>
+        <li className="item">
+          <Link className="listItem " to="/about">
+            Sobre
+          </Link>
+        </li>
+      </ul>
+    </header>
   );
 }
 
