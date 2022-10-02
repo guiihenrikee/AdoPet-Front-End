@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UseAuth from "../utils/UseAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
@@ -33,10 +33,8 @@ const Login = () => {
       );
 
       const accessToken = response.data.token;
-
-      localStorage.setItem("token", accessToken);
+      localStorage.setItem("token", JSON.stringify(accessToken));
       setAuth({ email, password, accessToken });
-      //setSuccess(true);
       alert("Login efetuado com sucesso!");
       resetForm({ values: "" });
       navigate(from, { replace: true });

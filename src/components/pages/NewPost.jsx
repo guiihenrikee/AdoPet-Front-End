@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/NewPost.css";
 
 const NewPost = () => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const NewPost = () => {
     navigate("/account");
   };
   return (
-    <div>
+    <div className="newPost">
       <h1>Nova Postagem</h1>
       <button onClick={goBack}>Voltar</button>
     </div>

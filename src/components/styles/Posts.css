@@ -5,3 +5,7 @@
   background: #ff8080;
   text-align: center;
 } */
+.postList {
+  position: relative;
+  top: 100px;
+}

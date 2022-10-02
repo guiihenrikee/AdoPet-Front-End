@@ -17,7 +17,7 @@ function Posts() {
   }, []);
 
   return (
-    <div className="container text-center">
+    <div className="postList">
       {posts.map((post) => {
         return (
           <div key={post._id} className="col">
