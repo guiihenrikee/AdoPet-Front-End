@@ -8,4 +8,11 @@
 .postList {
   position: relative;
   top: 100px;
+  margin: 25px;
+  text-align: center;
+}
+
+img {
+  width: 350px;
+  height: 350px;
 }

@@ -5,7 +5,7 @@ import logo from "../../img/pets2.png";
 
 function Header(props) {
   return (
-    <header>
+    <header className="container-fluid">
       <Link to="/">
         <Link to="/" className="imgHeader">
           AdoPet

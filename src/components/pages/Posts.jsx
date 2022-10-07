@@ -20,14 +20,16 @@ function Posts() {
     <div className="postList">
       {posts.map((post) => {
         return (
-          <div key={post._id} className="col">
-            <h2>{post.petName}</h2>
-            <p>{post.description}</p>
-            <p>{post.contactInfo.name}</p>
-            <p>{post.contactInfo.phone}</p>
-            <p>{post.contactInfo.email}</p>
-            <input type="button" value="Adotar" />
-          </div>
+          <>
+            <div key={post._id} className="col">
+              <h2>{post.petName}</h2>
+              <p>{post.description}</p>
+              <img src={post.photo} alt="Foto do Pet" />
+              <br />
+              <input type="button" value="Adotar" />
+            </div>
+            <br />
+          </>
         );
       })}
     </div>

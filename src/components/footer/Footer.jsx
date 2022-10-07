@@ -5,7 +5,7 @@ import "./footer.css";
 function Footer(props) {
   const year = new Date().getFullYear();
   return (
-    <footer className="footer">
+    <footer className="footer container-fluid p-0">
       <p className="copyRight">
         <span>{props.note}</span> &copy; {year}
       </p>
