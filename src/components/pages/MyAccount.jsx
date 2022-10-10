@@ -9,8 +9,13 @@ const MyAccount = () => {
   const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // window.onbeforeunload = function () {
+  //   localStorage.clear();
+  // };
+
   const logout = async () => {
     setAuth({});
+    localStorage.clear();
     navigate("/");
   };
 
@@ -30,6 +35,7 @@ const MyAccount = () => {
       .then((res) => {
         setUsers(res.data);
         console.log(users);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
