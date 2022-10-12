@@ -100,14 +100,17 @@ const Register = () => {
                 className="Register-Error"
               />
             </div>
-            <button className="Register-Btn" type="submit">
+            <button className="btnLogin" type="submit">
               Cadastrar
             </button>
           </Form>
         </Formik>
         <br />
         <p>
-          Já possui uma conta? <Link to="/login">Entrar</Link>
+          Já possui uma conta?{" "}
+          <Link className="btnLogin2" to="/login">
+            Entrar
+          </Link>
         </p>
       </div>
     </div>

@@ -7,7 +7,12 @@ import Footer from "./components/footer/Footer";
 function App() {
   return (
     <main>
-      <Header login="Entrar" register="Cadastro" />
+      <Header
+        login="Entrar"
+        account="Cadastro"
+        logt="/login"
+        regt="/register"
+      />
       <Routing />
       <Footer note="AdoPet" />
     </main>

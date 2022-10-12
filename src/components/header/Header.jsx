@@ -24,13 +24,13 @@ function Header(props) {
           </Link>
         </li>
         <li className="item">
-          <Link className="listItem " to="/login">
+          <Link className="listItem " to={props.logt}>
             {props.login}
           </Link>
         </li>
         <li className="item">
-          <Link className="listItem " to="/register">
-            {props.register}
+          <Link className="listItem " to={props.regt}>
+            {props.account}
           </Link>
         </li>
         <li className="item">

@@ -45,7 +45,18 @@
 
 .adoteButton {
   background-color: #222;
-  color: #fff;
+  color: #ffbb33;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 20px;
+}
+.accountButton {
+  background-color: #222;
+  position: relative;
+  top: 30px;
+  left: 30px;
+  color: #ffbb33;
   padding: 0.5em 1em;
   text-decoration: none;
   transition: 0.5s;
@@ -53,5 +64,9 @@
 }
 
 .adoteButton:hover {
-  color: #ffbb33;
+  color: #fff;
+}
+
+.accountButton:hover {
+  color: #fff;
 }

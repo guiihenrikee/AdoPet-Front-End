@@ -11,20 +11,24 @@ const MyAccount = () => {
 
   // window.onbeforeunload = function () {
   //   localStorage.clear();
+  //   return "";
   // };
 
   const logout = async () => {
     setAuth({});
-    localStorage.clear();
+    sessionStorage.clear();
     navigate("/");
   };
 
   const newPost = async () => {
     navigate("/newpost");
   };
+  const app = async () => {
+    navigate("/application");
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     const accessToken = JSON.parse(token);
     axiosAPI
       .get("/users", {
@@ -47,6 +51,7 @@ const MyAccount = () => {
       <h1>Informações da Conta</h1>
       <button onClick={newPost}>Criar Postagem</button>
       <br />
+      <button onClick={app}>Adoção</button>
       <br />
       <button onClick={logout}>Sair</button>
     </div>

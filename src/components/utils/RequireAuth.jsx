@@ -4,8 +4,8 @@ import UseAuth from "./UseAuth";
 const RequireAuth = () => {
   const { auth } = UseAuth();
   const location = useLocation();
-
-  return auth?.email ? (
+  // auth?.email
+  return sessionStorage.getItem("token") ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />

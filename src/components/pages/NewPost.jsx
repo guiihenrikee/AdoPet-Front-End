@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "../styles/NewPost.css";
 
 const NewPost = () => {
+  // window.onbeforeunload = function () {
+  //   sessionStorage.clear();
+  //   return "";
+  // };
+
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
 
@@ -29,18 +34,25 @@ const NewPost = () => {
     // setFiles(event.target.files)
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (values, e) => {
     e.preventDefault();
-    const response = await axiosAPI.post(
-      "/posts",
-      JSON.stringify({
-        image: image,
-      })
-    );
+
+    const petName = values.petName;
+    const description = values.description;
+
     try {
+      const response = await axiosAPI.post(
+        "/posts",
+        JSON.stringify({
+          petName,
+          description,
+          image: image,
+        })
+      );
       console.log(response.data);
     } catch (error) {
       console.log(error);
+      alert(JSON.stringify(error.response.data.message));
     }
   };
 
@@ -79,7 +91,7 @@ const NewPost = () => {
               }}
             />
             <br />
-            <button className="btn btn-primary" type="submit">
+            <button className="btnLogin" type="submit">
               Criar Postagem
             </button>
           </div>

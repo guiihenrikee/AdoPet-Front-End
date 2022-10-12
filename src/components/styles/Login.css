@@ -42,11 +42,58 @@
 .backgroundDog {
   position: relative;
   top: 100px;
-  background-image: url("../../img/3t.jpg");
+  background-image: url("../../img/aaa1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   min-height: 800px;
   min-width: 500px;
+}
+
+.btnLogin {
+  margin-top: 2rem;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-color: #222;
+  padding: 5px;
+  background: #222 !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.btnLogin:hover,
+.btnLogin:focus {
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 2px solid #fff !important;
+  background: #222 !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: none;
+}
+
+.btnLogin2 {
+  border: 2px solid;
+  border-image-slice: 1;
+  padding: 2px;
+  border-color: #222;
+  background: #222 !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.btnLogin2:hover,
+.btnLogin2:focus {
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 2px solid #fff !important;
+  background: #222 !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: none;
 }

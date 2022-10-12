@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UseAuth from "../utils/UseAuth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import axiosAPI from "../../api/axios";
@@ -11,7 +11,8 @@ const LOGIN_URL = "/login";
 const Login = () => {
   const { setAuth } = UseAuth();
   const navigate = useNavigate();
-  const from = "/account";
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = async (values, { resetForm }) => {
     await new Promise((r) => setTimeout(r, 500));
@@ -31,13 +32,13 @@ const Login = () => {
           withCredentials: true,
         }
       );
-
+      console.log(response.data.token);
       const accessToken = response.data.token;
-      localStorage.setItem("token", JSON.stringify(accessToken));
+      sessionStorage.setItem("token", JSON.stringify(accessToken));
       setAuth({ email, password, accessToken });
-      alert("Login efetuado com sucesso!");
+      // alert("Login efetuado com sucesso!");
       resetForm({ values: "" });
-      navigate(from, { replace: true });
+      navigate(from);
     } catch (error) {
       console.log(error);
       alert(JSON.stringify(error.response.data.message));
@@ -91,16 +92,16 @@ const Login = () => {
                 className="Login-Error"
               />
             </div>
-            <button className="Login-Btn" type="submit">
+            <button className="btnLogin" type="submit">
               Login
             </button>
           </Form>
         </Formik>
         <br />
-        <p>
-          Ainda não possui uma conta? <Link to="/register">Cadastre-se</Link>
-        </p>
-        <Link to="/account">account</Link>
+        <p>Ainda não possui uma conta? </p>
+        <Link className="btnLogin2" to="/register">
+          Cadastre-se
+        </Link>
       </div>
     </div>
   );
