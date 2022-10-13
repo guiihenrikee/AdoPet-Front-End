@@ -33,10 +33,15 @@ const Login = () => {
         }
       );
       console.log(response.data.token);
+      console.log(response.data.userID);
+
+      //Save the TOKEN and the User`s ID from the response.
+      const userID = response.data.userID;
       const accessToken = response.data.token;
       sessionStorage.setItem("token", JSON.stringify(accessToken));
+      sessionStorage.setItem("userID", JSON.stringify(userID));
+
       setAuth({ email, password, accessToken });
-      // alert("Login efetuado com sucesso!");
       resetForm({ values: "" });
       navigate(from);
     } catch (error) {

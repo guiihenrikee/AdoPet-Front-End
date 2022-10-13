@@ -1,55 +1,57 @@
-import { useState } from "react";
-import axiosAPI from "../../api/axios";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Formik, Form, useField } from "formik";
+import axiosAPI from "../../api/axios";
+import * as Yup from "yup";
 import "../styles/NewPost.css";
 
+const MyTextInput = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <input className="text-input" {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </>
+  );
+};
+
+const POST_URL = "/posts";
+
 const NewPost = () => {
-  // window.onbeforeunload = function () {
-  //   sessionStorage.clear();
-  //   return "";
-  // };
-
-  const [file, setFile] = useState("");
-  const [image, setImage] = useState("");
-
+  const [file, setFile] = useState();
   const navigate = useNavigate();
 
   const goBack = async () => {
     navigate("/account");
   };
 
-  const previewFiles = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
+  const formData = new FormData();
 
-    reader.onloadend = () => {
-      setImage(reader.result);
-    };
+  const handleChange = (event) => {
+    if (event.target.files[0]) {
+      const tempFile = event.target.files[0];
+      formData.append("photo", tempFile);
+      const appendedFile = formData.get("photo");
+      setFile(appendedFile);
+    }
   };
 
-  const uploadImage = (event) => {
-    const file = event.target.files[0];
-    previewFiles(file);
-    console.log(file);
-    // setFiles(event.target.files)
-  };
-
-  const handleSubmit = async (values, e) => {
-    e.preventDefault();
-
+  const submitForm = async (values) => {
+    await new Promise((r) => setTimeout(r, 500));
     const petName = values.petName;
     const description = values.description;
+    formData.append("petName", petName);
+    formData.append("description", description);
+    formData.append("photo", file);
 
     try {
-      const response = await axiosAPI.post(
-        "/posts",
-        JSON.stringify({
-          petName,
-          description,
-          image: image,
-        })
-      );
-      console.log(response.data);
+      const response = await axiosAPI.post(POST_URL, formData);
+      console.log(response);
+      alert(response.data);
+      navigate("/posts");
     } catch (error) {
       console.log(error);
       alert(JSON.stringify(error.response.data.message));
@@ -58,48 +60,51 @@ const NewPost = () => {
 
   return (
     <>
-      <div className="newPost">
-        <h1>Nova Postagem</h1>
-        <button onClick={goBack}>Voltar</button>
-      </div>
       <div className="test">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="mb-3">
-            <label className="form-label"> Nome do Pet</label>
-            <input
-              className="form-control"
-              type="text"
+        <Formik
+          initialValues={{
+            petName: "",
+            description: "",
+          }}
+          validationSchema={Yup.object({
+            petName: Yup.string().min(4).max(20).required("Required"),
+            description: Yup.string()
+              .min(20, "Mínimo 20 caracteres")
+              .max(170, "Máximo 170 caracteres")
+              .required("Required"),
+          })}
+          onSubmit={submitForm}
+        >
+          <Form>
+            <MyTextInput
+              id="petName"
               name="petName"
-              required
-            />
-            <label className="form-label">Descrição</label>
-            <input
-              className="form-control"
               type="text"
-              name="description"
-              required
-            />
-            <label className="form-label">Foto</label>
-            <input
-              formEncType="multipart/form-data"
-              className="form-control"
-              type="file"
-              name="photos"
-              accept="image/png, image/jpeg image/jpg"
-              onChange={(event) => {
-                uploadImage(event);
-              }}
+              placeholder="Nome do Pet"
             />
             <br />
-            <button className="btnLogin" type="submit">
-              Criar Postagem
-            </button>
-          </div>
-        </form>
-        {/* <img src={image} alt="imagem" /> */}
+            <MyTextInput
+              id="description"
+              name="description"
+              type="text"
+              placeholder="Descrição do Pet"
+            />
+            <br />
+            <input
+              placeholder="Foto do Pet"
+              name="photo"
+              type="file"
+              onChange={handleChange}
+              required
+            />
+            <br />
+            <label>Foto do Pet - Máximo 10 MB.</label>
+            <br />
+            <button type="submit">Submit</button>
+          </Form>
+        </Formik>
       </div>
     </>
   );
 };
-
 export default NewPost;
