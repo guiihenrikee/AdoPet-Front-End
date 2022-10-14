@@ -1,18 +1,72 @@
 .newPost {
-  position: absolute;
+  position: relative;
   top: 100px;
-}
-
-.test {
-  align-items: center;
+  width: 100%;
   display: flex;
-  position: absolute;
-  top: 200px;
-  left: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
-  width: 200px;
-  height: 200px;
-  margin-left: 30px;
+  border: 1px solid #222; /* Gray border */
+  border-radius: 4px; /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 250px; /* Set a small width */
+}
+
+img:hover {
+  box-shadow: #222 1px 0 10px;
+  border: 2px solid #222 !important;
+}
+
+.post-Field {
+  border: none;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fdfdfd;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 7px;
+  width: 100%;
+  transition: all 0.1s linear;
+}
+
+.post-Field:focus {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.post-Error {
+  color: #ff8080;
+}
+
+.postBlock {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  margin: auto;
+}
+
+.btnPost {
+  border: 2px solid;
+  border-image-slice: 1;
+  border-color: #222;
+  padding: 10px;
+  background: #222 !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.btnPost:hover,
+.btnPost:focus {
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 2px solid #fff !important;
+  background: #222 !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: none;
 }

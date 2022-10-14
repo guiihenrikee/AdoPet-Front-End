@@ -48,12 +48,18 @@ const MyAccount = () => {
 
   return (
     <div className="accountList">
+      <button className="btnLogin2" onClick={logout}>
+        Sair
+      </button>
       <h1>Informações da Conta</h1>
-      <button onClick={newPost}>Criar Postagem</button>
+      <button className="btnLogin2" onClick={newPost}>
+        Criar Postagem
+      </button>
       <br />
-      <button onClick={app}>Adoção</button>
+      <button className="btnLogin2" onClick={app}>
+        Aplicação de Adoção
+      </button>
       <br />
-      <button onClick={logout}>Sair</button>
     </div>
   );
 };

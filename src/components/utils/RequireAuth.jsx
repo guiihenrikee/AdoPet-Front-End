@@ -1,10 +1,8 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
-import UseAuth from "./UseAuth";
 
 const RequireAuth = () => {
-  const { auth } = UseAuth();
   const location = useLocation();
-  // auth?.email
+
   return sessionStorage.getItem("token") ? (
     <Outlet />
   ) : (
