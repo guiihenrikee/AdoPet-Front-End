@@ -11,6 +11,8 @@ import NewPost from "../pages/NewPost";
 import RequireAuth from "./RequireAuth";
 import NotFound from "../pages/NotFound";
 import IsLogged from "./IsLogged";
+import EditPost from "../pages/EditPost";
+import EditAccount from "../pages/EditAccount";
 
 const Routing = () => (
   <Routes>
@@ -22,13 +24,15 @@ const Routing = () => (
       <Route path="/login" element={<Login />} />
       <Route path="/about" element={<About />} />
 
-      {/* Private route */}
-
+      {/* Private routes */}
       <Route element={<RequireAuth />}>
         <Route path="/account" element={<MyAccount />} />
         <Route path="/newpost" element={<NewPost />} />
         <Route path="/application" element={<Application />} />
+        <Route path="/editpost" element={<EditPost />} />
+        <Route path="/editaccount" element={<EditAccount />} />
       </Route>
+
       {/* Not found routes */}
       <Route path="*" element={<NotFound />} />
     </Route>

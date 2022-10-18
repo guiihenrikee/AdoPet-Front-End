@@ -23,9 +23,11 @@ const NewPost = () => {
 
     if (!tempFile) {
       window.alert("Adicione um arquivo!");
+      tempFile = null;
       return false;
     } else if (tempFile.size > 10e6) {
       window.alert("O arquivo deve ser menor que 10MB!");
+      tempFile = null;
       return false;
     } else {
       formData.append("photo", tempFile);
@@ -43,7 +45,8 @@ const NewPost = () => {
     await new Promise((r) => setTimeout(r, 500));
     const petName = values.petName;
     const description = values.description;
-    const userID = sessionStorage.getItem("userID");
+    const userIdentification = sessionStorage.getItem("userID");
+    const userID = JSON.parse(userIdentification);
     formData.append("userID", userID);
     formData.append("petName", petName);
     formData.append("description", description);
@@ -53,7 +56,8 @@ const NewPost = () => {
       const response = await axiosAPI.post(POST_URL, formData);
       console.log(response);
       alert(response.data.message);
-      navigate("/posts");
+      if (response.data.message === "Postagem criada com sucesso!")
+        navigate("/posts");
     } catch (error) {
       console.log(error);
       alert(JSON.stringify(error.response.data.message));
@@ -99,13 +103,12 @@ const NewPost = () => {
               />
             </div>
             <div className="post-Group">
-              <textarea
+              <Field
                 id="description"
                 name="description"
                 type="text"
                 placeholder="Descrição do Pet"
                 className="post-Field"
-                rows="5"
               />
               <ErrorMessage
                 component="span"

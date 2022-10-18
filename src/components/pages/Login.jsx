@@ -16,7 +16,6 @@ const Login = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     await new Promise((r) => setTimeout(r, 500));
-    // console.log(JSON.stringify(values, null, 2));
 
     // Get the info from the form.
     const email = values.email;
