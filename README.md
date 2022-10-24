@@ -3,6 +3,6 @@
 AdoPet-Front-End
 
 Projeto em construção.
-Projeto sendo desenvolvido para o TCC do curso de Análise e Desenvolvimento de Sistemas da IFP - Londrina.
+Projeto sendo desenvolvido para o TCC do curso de Análise e Desenvolvimento de Sistemas da IFPR - Londrina.
 
 O front-end está sendo desenvolvido em ReactJS.
