@@ -30,7 +30,6 @@ const Routing = () => (
         <Route path="/newpost" element={<NewPost />} />
         <Route path="/application" element={<Application />} />
         <Route path="/editpost" element={<EditPost />} />
-        <Route path="/editaccount" element={<EditAccount />} />
       </Route>
 
       {/* Not found routes */}

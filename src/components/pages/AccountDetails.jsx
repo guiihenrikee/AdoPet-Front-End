@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "../styles/AccountDetails.css";
 
 import axiosAPI from "../../api/axios";
 
 function AccountDetails() {
-  const navigate = useNavigate();
   const [usersInfo, setUsersInfo] = useState();
   const userDataID = sessionStorage.getItem("userID");
   const userID = JSON.parse(userDataID);
@@ -27,11 +26,6 @@ function AccountDetails() {
         console.log(err);
       });
   }
-
-  const userDetailEdit = async () => {
-    navigate("/editaccount");
-  };
-
   useEffect(() => {
     userDetails();
   }, [usersInfo]);
@@ -45,6 +39,7 @@ function AccountDetails() {
 
   return (
     <div>
+      <h1>Informações da Conta</h1>
       <label>
         Nome <h5>{usersInfo.name}</h5>
       </label>
@@ -52,10 +47,6 @@ function AccountDetails() {
       <label>
         Email <h5>{usersInfo.email}</h5>
       </label>
-      <br />
-      <button className="btnLogin2" onClick={userDetailEdit}>
-        Editar dados
-      </button>
     </div>
   );
 }

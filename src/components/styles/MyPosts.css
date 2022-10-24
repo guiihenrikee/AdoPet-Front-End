@@ -1,0 +1,22 @@
+.text-padding {
+  margin-top: 8px;
+}
+
+.accountButton2 {
+  background-color: #222;
+  position: relative;
+  color: #ffbb33;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 23px;
+  margin-right: 10px;
+}
+
+.accountButton2:hover {
+  color: #fff;
+}
+
+.accountButton2:hover {
+  color: #fff;
+}

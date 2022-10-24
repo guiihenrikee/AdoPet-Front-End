@@ -1,0 +1,14 @@
+.Post-Edit {
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 2em;
+}
+
+.mini-img img {
+  border: 1px solid #222; /* Gray border */
+  border-radius: 4px; /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 265px; /* Set a small width */
+  max-height: 170px;
+  margin-left: 25%;
+}

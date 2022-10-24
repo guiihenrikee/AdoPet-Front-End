@@ -67,7 +67,7 @@ const NewPost = () => {
   return (
     <div className="newPost">
       <div className="postBlock">
-        <button className="btnLogin2" onClick={goBack}>
+        <button className="accountButton2" onClick={goBack}>
           Voltar
         </button>
         <h1>Nova Postagem</h1>
@@ -131,6 +131,9 @@ const NewPost = () => {
                 className="post-Error"
               />
             </div>
+            <div className="mini-img">
+              {imgData ? <img src={imgData} /> : null}
+            </div>
             <br />
             <button className="btnPost" type="submit">
               Criar Postagem
@@ -138,7 +141,6 @@ const NewPost = () => {
           </Form>
         </Formik>
       </div>
-      <div className="divImg">{imgData ? <img src={imgData} /> : null}</div>
     </div>
   );
 };

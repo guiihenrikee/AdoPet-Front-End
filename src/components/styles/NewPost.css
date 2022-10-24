@@ -1,6 +1,4 @@
 .newPost {
-  position: relative;
-  top: 100px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,7 +10,8 @@ img {
   border: 1px solid #222; /* Gray border */
   border-radius: 4px; /* Rounded border */
   padding: 5px; /* Some padding */
-  width: 250px; /* Set a small width */
+  width: 265px; /* Set a small width */
+  max-height: 170px;
 }
 
 img:hover {
@@ -44,7 +43,7 @@ img:hover {
 .postBlock {
   width: 100%;
   max-width: 600px;
-  padding: 15px;
+  padding-top: 15px;
   margin: auto;
 }
 

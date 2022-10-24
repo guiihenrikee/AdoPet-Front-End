@@ -32,8 +32,6 @@
 }
 
 .backDog {
-  position: relative;
-  top: 100px;
   background-image: url("../../img/dogs2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -55,12 +53,13 @@
   background-color: #222;
   position: relative;
   top: 30px;
-  left: 30px;
+  left: 20px;
   color: #ffbb33;
   padding: 0.5em 1em;
   text-decoration: none;
   transition: 0.5s;
   border-radius: 20px;
+  margin-right: 10px;
 }
 
 .adoteButton:hover {

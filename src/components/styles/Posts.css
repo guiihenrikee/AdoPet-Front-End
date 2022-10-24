@@ -4,10 +4,14 @@
 
 .postList {
   position: relative;
-  top: 100px;
+  top: 40px;
   text-align: center;
   margin: 20px;
   padding-left: 7%;
+}
+.logState {
+  position: relative;
+  left: 80px;
 }
 
 .card-title {
@@ -57,7 +61,7 @@
 .btn:focus {
   -webkit-background-clip: none !important;
   -webkit-text-fill-color: #fff !important;
-  border: 4px solid #fff !important;
+  border: 3px solid #fff !important;
   background: #ffbb33 !important;
   box-shadow: #222 1px 0 10px;
   text-decoration: none;

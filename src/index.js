@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./components/utils/Auth";
 import "normalize.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "../src/components/styles/index.css";
 import App from "./App";
 

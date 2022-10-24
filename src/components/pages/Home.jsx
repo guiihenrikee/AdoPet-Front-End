@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../utils/Auth";
+import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 
 function Home() {
   const logged = sessionStorage.getItem("token");
+  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    setAuth({});
+    sessionStorage.clear();
+    navigate("/");
+  };
 
   return (
     <div className="backDog">
       {logged ? (
-        <Link className="accountButton" to="/account">
-          Minha Conta
-        </Link>
+        <>
+          <Link className="accountButton" onClick={logout}>
+            Sair
+          </Link>
+          <Link className="accountButton" to="/account">
+            Minha Conta
+          </Link>
+        </>
       ) : (
         <input hidden />
       )}

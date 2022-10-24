@@ -1,9 +1,10 @@
 import { React, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axiosAPI from "../../api/axios";
 import "../styles/Posts.css";
 
 function Posts() {
+  const logged = sessionStorage.getItem("token");
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
@@ -25,6 +26,20 @@ function Posts() {
 
   return (
     <div className="container-fuid p-0 x">
+      <div className="logState">
+        {logged ? (
+          <>
+            <Link className="accountButton" onClick={"s"}>
+              Sair
+            </Link>
+            <Link className="accountButton" to="/account">
+              Minha Conta
+            </Link>
+          </>
+        ) : (
+          <input hidden />
+        )}
+      </div>
       <div className="postList row">
         {posts.map((post) => {
           return (

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import axiosAPI from "../../api/axios";
-import "../styles/MyAccount.css";
+import React, { useContext, useEffect, Suspense } from "react";
 import AuthContext from "../utils/Auth";
-import AccountDetails from "./AccountDetails";
-import MyPosts from "./MyPosts";
+import EditAccount from "./EditAccount";
+import "../styles/MyAccount.css";
+
+const MyPosts = React.lazy(() => import("./MyPosts"));
 
 const MyAccount = () => {
   const { setAuth } = useContext(AuthContext);
@@ -16,31 +16,27 @@ const MyAccount = () => {
     navigate("/");
   };
 
-  const newPost = async () => {
-    navigate("/newpost");
-  };
-
   useEffect(() => {}, []);
 
   return (
     <>
       <div className="accountList">
-        <div>
-          <button className="btnLogin2" onClick={logout}>
-            Sair
-          </button>
-          <button className="btnLogin2" onClick={newPost}>
-            Criar Postagem
-          </button>
-        </div>
+        <div className="layout">
+          <div className="buttons">
+            <button className="accountButton2" onClick={logout}>
+              Sair
+            </button>
+          </div>
+          <div className="accountInfo">
+            <br />
+            <EditAccount />
+          </div>
 
-        <div className="accountInfo">
-          <h1>Informações da Conta</h1>
-          <AccountDetails />
-        </div>
-
-        <div className="postInfo">
-          <MyPosts />
+          <div className="postInfo">
+            <Suspense fallback={<div>Carregando....</div>}>
+              <MyPosts />
+            </Suspense>
+          </div>
         </div>
       </div>
     </>
