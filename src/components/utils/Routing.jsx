@@ -12,7 +12,6 @@ import RequireAuth from "./RequireAuth";
 import NotFound from "../pages/NotFound";
 import IsLogged from "./IsLogged";
 import EditPost from "../pages/EditPost";
-import EditAccount from "../pages/EditAccount";
 
 const Routing = () => (
   <Routes>

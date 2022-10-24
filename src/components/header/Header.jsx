@@ -2,12 +2,9 @@ import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 import logo from "../../img/pets2.png";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 
 function Header(props) {
   return (
@@ -16,9 +13,9 @@ function Header(props) {
         <Link to="/">
           <img src={logo} alt="Logo" />
         </Link>
-        <Navbar className="imgHeader" href="/">
+        <Link className="imgHeader" to="/">
           AdoPet
-        </Navbar>
+        </Link>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -29,9 +26,9 @@ function Header(props) {
           >
             <ul className="listItem">
               <li className="item ">
-                {/* <Link className="listItem " to="/">
+                <Link className="listItem " to="/">
                   Home
-                </Link> */}
+                </Link>
               </li>
               <li className="item">
                 <Link className="listItem " to="/posts">
@@ -39,7 +36,7 @@ function Header(props) {
                 </Link>
               </li>
               <li className="item">
-                <Link className="listItem " to={props.logt}>
+                <Link className="listItem" onClick={props.logt}>
                   {props.login}
                 </Link>
               </li>
@@ -59,45 +56,6 @@ function Header(props) {
       </Container>
     </Navbar>
   );
-  {
-    /* // return (
-  //   <header className="container-fluid">
-  //     <Link to="/">
-  //       <Link to="/" className="imgHeader">
-  //         AdoPet
-  //       </Link>
-  //       <img src={logo} alt="Logo" />
-  //     </Link>
-  //     <ul className="list">
-  //       <li className="item">
-  //         <Link className="listItem " to="/">
-  //           Home
-  //         </Link>
-  //       </li>
-  //       <li className="item">
-  //         <Link className="listItem " to="/posts">
-  //           Pets
-  //         </Link>
-  //       </li>
-  //       <li className="item">
-  //         <Link className="listItem " to={props.logt}>
-  //           {props.login}
-  //         </Link>
-  //       </li>
-  //       <li className="item">
-  //         <Link className="listItem " to={props.regt}>
-  //           {props.account}
-  //         </Link>
-  //       </li>
-  //       <li className="item">
-  //         <Link className="listItem " to="/about">
-  //           Sobre
-  //         </Link>
-  //       </li>
-  //     </ul>
-  //   </header>
-  // ); */
-  }
 }
 
 export default Header;

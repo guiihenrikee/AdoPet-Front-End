@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <div className="backDog">
-      {logged ? (
+      {/* {logged ? (
         <>
           <Link className="accountButton" onClick={logout}>
             Sair
@@ -28,7 +28,7 @@ function Home() {
         </>
       ) : (
         <input hidden />
-      )}
+      )} */}
 
       <section className="homeContainer">
         <h1>

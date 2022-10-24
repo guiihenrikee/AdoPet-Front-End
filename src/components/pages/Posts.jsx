@@ -1,16 +1,24 @@
-import { React, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import AuthContext from "../utils/Auth";
 import axiosAPI from "../../api/axios";
 import "../styles/Posts.css";
 
 function Posts() {
   const logged = sessionStorage.getItem("token");
   const [posts, setPosts] = useState([]);
+  const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const startApply = async () => {
     navigate("/application");
   };
+
+  // const logout = () => {
+  //   setAuth({});
+  //   sessionStorage.clear();
+  //   navigate("/");
+  // };
 
   useEffect(() => {
     axiosAPI
@@ -26,10 +34,10 @@ function Posts() {
 
   return (
     <div className="container-fuid p-0 x">
-      <div className="logState">
+      {/* <div className="logState">
         {logged ? (
           <>
-            <Link className="accountButton" onClick={"s"}>
+            <Link className="accountButton" onClick={logout}>
               Sair
             </Link>
             <Link className="accountButton" to="/account">
@@ -39,7 +47,7 @@ function Posts() {
         ) : (
           <input hidden />
         )}
-      </div>
+      </div> */}
       <div className="postList row">
         {posts.map((post) => {
           return (

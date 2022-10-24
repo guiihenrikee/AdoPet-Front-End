@@ -61,6 +61,9 @@ function EditAccount() {
       <div className="registerBlock">
         <AccountDetails />
         <br />
+        <br />
+        <br />
+        <br />
         <h3>Editar dados da conta</h3>
         <Formik
           initialValues={{
