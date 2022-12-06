@@ -1,24 +1,16 @@
-import { useNavigate, Link } from "react-router-dom";
-import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../hooks/Auth";
+import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import axiosAPI from "../../api/axios";
 import "../styles/Posts.css";
 
 function Posts() {
-  const logged = sessionStorage.getItem("token");
   const [posts, setPosts] = useState([]);
-  const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const startApply = async () => {
+  const startApply = async (e) => {
+    sessionStorage.setItem("postUserID", JSON.stringify(e.target.value));
     navigate("/application");
   };
-
-  // const logout = () => {
-  //   setAuth({});
-  //   sessionStorage.clear();
-  //   navigate("/");
-  // };
 
   useEffect(() => {
     axiosAPI
@@ -34,20 +26,6 @@ function Posts() {
 
   return (
     <div className="container-fuid p-0 x">
-      {/* <div className="logState">
-        {logged ? (
-          <>
-            <Link className="accountButton" onClick={logout}>
-              Sair
-            </Link>
-            <Link className="accountButton" to="/account">
-              Minha Conta
-            </Link>
-          </>
-        ) : (
-          <input hidden />
-        )}
-      </div> */}
       <div className="postList row">
         {posts.map((post) => {
           return (
@@ -66,7 +44,7 @@ function Posts() {
                   type="submit"
                   onClick={startApply}
                   className="btn"
-                  value={post._id}
+                  value={post.userID}
                 >
                   Adotar
                 </button>

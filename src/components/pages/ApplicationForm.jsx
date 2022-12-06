@@ -1,6 +1,12 @@
 import React from "react";
 import { Formik, Form, useField, Field } from "formik";
 import * as Yup from "yup";
+import { ApplicationEmail } from "./ApplicationEmail";
+import axiosAPI from "../../api/axios";
+
+const backSmtp = (items) => {
+  axiosAPI.post("/smtp", items);
+};
 
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -77,12 +83,14 @@ const ApplicationForm = () => {
             .required("Required")
             .oneOf([true], "Você deve aceitar os termos e condições."),
           reason: Yup.string()
-            .oneOf(["company", "distraction", "protect", "other"], "Inválido")
+            .oneOf(["Companhia", "Distração", "Proteger", "Outro"], "Inválido")
             .required("Required"),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            console.log(JSON.stringify(values, null, 2));
+            backSmtp(values);
+            ApplicationEmail();
             setSubmitting(true);
           }, 400);
         }}
@@ -126,10 +134,10 @@ const ApplicationForm = () => {
           <label>Razão: </label>
           <MySelect name="reason">
             <option value="">Selecione</option>
-            <option value="company">Companhia</option>
-            <option value="distraction">Distração p/ os filhos</option>
-            <option value="protect">Proteger a casa</option>
-            <option value="other">Outro</option>
+            <option value="Companhia">Companhia</option>
+            <option value="Distração">Distração p/ os filhos</option>
+            <option value="Proteger">Proteger a casa</option>
+            <option value="Outro">Outro</option>
           </MySelect>
 
           <Field component="div" name="firstCommitment">

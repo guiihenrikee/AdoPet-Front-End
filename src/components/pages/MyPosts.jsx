@@ -9,7 +9,6 @@ const userID = JSON.parse(userDataID);
 
 const MyPosts = () => {
   const [postsWithID, setPostsWithID] = useState([]);
-  const [postState, setPostState] = useState(false);
   const navigate = useNavigate();
 
   const editPost = async (e) => {
@@ -53,39 +52,6 @@ const MyPosts = () => {
         console.log(err);
       });
   };
-
-  // const CheckPosts = () => {
-  //   postsWithID.map((post) => {
-  //     if (post.userID === userID) {
-  //       return (
-  //         <div key={post._id} id={post._id}>
-  //           <h4>{post.petName}</h4>
-  //           <div className="divImg">
-  //             <img src={post.photo} alt="miniatura" />
-  //           </div>
-  //           <button className="btnLogin2" onClick={editPost}>
-  //             Editar Postagem
-  //           </button>
-  //           <button
-  //             className="btnLogin2"
-  //             value={post._id}
-  //             onClick={deletePost}
-  //             type="submit"
-  //           >
-  //             Excluir Postagem
-  //           </button>
-  //         </div>
-  //       );
-  //     }
-  //   });
-  // };
-  // const NoPosts = () => {
-  //   return (
-  //     <div>
-  //       <h4>Você não possui nenhuma postagem.</h4>
-  //     </div>
-  //   );
-  // };
 
   useEffect(() => {
     renderPosts();

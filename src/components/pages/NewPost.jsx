@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import { Formik, Form, useField, ErrorMessage, Field } from "formik";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 import axiosAPI from "../../api/axios";
 import * as Yup from "yup";
 import "../styles/NewPost.css";
@@ -19,7 +19,7 @@ const NewPost = () => {
   const formData = new FormData();
 
   const handleChange = (event) => {
-    const tempFile = event.target.files[0];
+    var tempFile = event.target.files[0];
 
     if (!tempFile) {
       window.alert("Adicione um arquivo!");
@@ -132,7 +132,7 @@ const NewPost = () => {
               />
             </div>
             <div className="mini-img">
-              {imgData ? <img src={imgData} /> : null}
+              {imgData ? <img src={imgData} alt="miniatura" /> : null}
             </div>
             <br />
             <button className="btnPost" type="submit">
