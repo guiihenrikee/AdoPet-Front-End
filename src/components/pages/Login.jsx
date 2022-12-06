@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UseAuth from "../utils/UseAuth";
+import UseAuth from "../hooks/UseAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";

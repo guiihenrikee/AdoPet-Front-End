@@ -64,7 +64,7 @@ function EditAccount() {
         <br />
         <br />
         <br />
-        <h3>Editar dados da conta</h3>
+        <h2>Editar dados da conta</h2>
         <Formik
           initialValues={{
             name: "",

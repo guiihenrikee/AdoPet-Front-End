@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import ApplicationForm from "./ApplicationForm";
 import "../styles/Application.css";
 
 const Application = () => {
@@ -14,7 +14,11 @@ const Application = () => {
       <button className="accountButton2" onClick={goBack}>
         Voltar
       </button>
-      <h2>Preencha o formulário abaixo</h2>
+      <div className="postBlock">
+        <h1>Preencha o formulário abaixo</h1>
+        <p>As informações do formulário serão enviadas para o dono do pet.</p>
+        <ApplicationForm />
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { Outlet, Navigate, useLocation } from "react-router";
-import UseAuth from "../utils/UseAuth";
+import UseAuth from "../hooks/UseAuth";
 import { useEffect, useState } from "react";
 
 const IsLogged = () => {

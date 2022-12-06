@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import { Formik, Form, useField, ErrorMessage, Field } from "formik";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 import axiosAPI from "../../api/axios";
 import * as Yup from "yup";
 import "../styles/EditPost.css";

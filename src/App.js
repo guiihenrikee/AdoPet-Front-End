@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Routing from "./components/utils/Routing";
+import Routing from "./components/hooks/Routing";
 import "../src/components/styles/App.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -24,7 +24,7 @@ function App() {
     <main>
       <Header
         login={logged ? "Sair" : "Entrar"}
-        account={logged ? "Minha Conta" : "Registrar"}
+        account={logged ? "Conta" : "Registrar"}
         logt={logged ? signedOut : signedIn}
         regt={logged ? "/account" : "/register"}
       />

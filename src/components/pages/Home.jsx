@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import AuthContext from "../utils/Auth";
+import AuthContext from "../hooks/Auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, Suspense } from "react";
-import AuthContext from "../utils/Auth";
+import AuthContext from "../hooks/Auth";
 import EditAccount from "./EditAccount";
 import "../styles/MyAccount.css";
 
