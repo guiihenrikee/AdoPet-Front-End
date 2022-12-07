@@ -4,8 +4,11 @@ import * as Yup from "yup";
 import { ApplicationEmail } from "./ApplicationEmail";
 import axiosAPI from "../../api/axios";
 
-const backSmtp = (items) => {
-  axiosAPI.post("/smtp", items);
+const backSmtp = async (form) => {
+  await ApplicationEmail();
+  const userDataEmail = sessionStorage.getItem("userEmail");
+  const userEmail = JSON.parse(userDataEmail);
+  await axiosAPI.post("/smtp", { form, userEmail });
 };
 
 const MyTextInput = ({ label, ...props }) => {
@@ -90,9 +93,8 @@ const ApplicationForm = () => {
           setTimeout(() => {
             console.log(JSON.stringify(values, null, 2));
             backSmtp(values);
-            ApplicationEmail();
             setSubmitting(true);
-          }, 400);
+          }, 200);
         }}
       >
         <Form>
@@ -281,7 +283,7 @@ const ApplicationForm = () => {
           <br />
 
           <MyCheckbox name="acceptedTerms">
-            Eu aceito os termos e condições.
+            Declaro que as informações fornecidas são verdadeiras.
           </MyCheckbox>
 
           <button className="btnLogin" type="submit">
